@@ -1,9 +1,9 @@
 import Form from "@/components/auth/form";
-import { getSession, signIn } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 export default function SignUp () {
     const onSubmit = async (email, password) => {
-        try {
+       
             const response = await fetch("/api/auth/signup",{
         method: "POST",
         body: JSON.stringify({email, password}),
@@ -13,9 +13,6 @@ export default function SignUp () {
         })
         if(response.ok) {
             alert("Sign Up Successfully");
-        }
-        } catch(err) {
-            console.error(err)
         }
         
     };
